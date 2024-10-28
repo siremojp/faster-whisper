@@ -15,7 +15,7 @@ model = None
 
 def initialize_model():
     global model
-    model_size = "large-v3"
+    model_size = "small.en"
     model = WhisperModel(model_size, device="cuda", compute_type="float16")
     print(f"Model {model_size} weights loaded on GPU")
 
@@ -70,7 +70,7 @@ image = (
 )
 
 
-@app.function(image=image, gpu=[modal.gpu.H100()], concurrency_limit=1, container_idle_timeout=600)
+@app.function(image=image, gpu=[modal.gpu.A10G()], concurrency_limit=2, container_idle_timeout=300)
 @modal.asgi_app()
 def fastapi_wrapper():
     initialize_model()

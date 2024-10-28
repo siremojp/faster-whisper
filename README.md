@@ -15,11 +15,12 @@ A FastAPI-based server that uses [Faster Whisper](https://github.com/guillaumekl
 
 ### 1. Clone the Repository
 
-Clone the `faster-whisper-modal` repository to your local machine:
+Clone the `faster-whisper-modal` repository to your local machine. And install requirements from the requirements.txt:
 
 ```bash
-git clone https://github.com/SYSTRAN/faster-whisper.git
+git clone https://github.com/siremojp/faster-whisper
 cd faster-whisper-modal
+pip3 install -r requirements.txt
 ```
 
 
