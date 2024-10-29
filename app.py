@@ -1,10 +1,10 @@
 from io import BytesIO
 
 import modal
+import modal.gpu
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
-import modal.gpu
 
 from faster_whisper import WhisperModel
 
@@ -70,7 +70,7 @@ image = (
 )
 
 
-@app.function(image=image, gpu=[modal.gpu.A10G()], concurrency_limit=2, container_idle_timeout=300)
+@app.function(image=image, gpu=[modal.gpu.A10G()], container_idle_timeout=300)
 @modal.asgi_app()
 def fastapi_wrapper():
     initialize_model()
