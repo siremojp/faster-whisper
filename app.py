@@ -70,7 +70,7 @@ image = (
 )
 
 
-@app.function(image=image, gpu=[modal.gpu.A10G()])
+@app.function(image=image, gpu=[modal.gpu.L4()])
 @modal.asgi_app()
 def fastapi_wrapper():
     initialize_model()
